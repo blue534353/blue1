@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -142,7 +142,6 @@ justify-content: space-between;
 align-items: center; padding: 20px;"><h5>GANHO ACUMULADO</h5><p>R$ 0,00</p></section>
 <br>
 <section style="background-color: rgb(186, 183, 179);">&copy;BLUE CORPORATION 2024</section>
-</div>
 
 </body>
 </html>
