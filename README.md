@@ -58,7 +58,8 @@ background-color: azure;
 }
 
 button {
-width: 166px;
+    background-color: rgb(143, 174, 183);
+width: 188px;
 margin-top: 5px;
 height: 30px;
 text-decoration: none;
@@ -96,22 +97,8 @@ font-size: 11px;
 
 }
 
-.c i {
-font-size: 11px;
 
 
-}
-
-.class {
-text-align: center;
-color: blueviolet;
-justify-content: center;
-margin: 20px;
-height: 100px;
-padding: 1%;
-
-
-}
 
 @media only screen and (max-width: 768px) {
       .class {
@@ -146,13 +133,16 @@ padding: 1%;
 
 
 <img src="blue.png" alt="">
-
-    <section style="padding: 5%; width: 200px; height: 100px;">gtgttggg</section>
-
-<section style="padding: 5%; width: 200px; height: 100px; position: relative; top: -152px; left: 274px;">ghjgjg</section>
-
-<section style="margin-top: -65px; padding: 5%;">greerg</section>
-
+    <section style="display: flex;
+    justify-content: space-between;
+    align-items: center; padding: 15px;"><h5>SALDO</h5><p>R$ 0,00</p></section>
+<br>
+<section style="background-color:rgb(157, 163, 154) ; display: flex;
+justify-content: space-between;
+align-items: center; padding: 20px;"><h5>GANHO ACUMULADO</h5><p>R$ 0,00</p></section>
+<br>
+<section style="background-color: rgb(186, 183, 179);">&copy;BLUE CORPORATION 2024</section>
+</div>
 
 </body>
 </html>
