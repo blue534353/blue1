@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Formulário</h2>
-    <form action="processar_cadastro.php" method="post">
+    <form action="login.html" method="post">
         <label for="email">Email:</label>
         <input type="email" name="email" required>
 
