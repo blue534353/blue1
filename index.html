@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
+    <title>Cadastro</title>
+    <script>
+        function redirectToLogin() {
+            window.location.href = "index1.html";
+        }
+    </script>
 </head>
 <body>
-    <h2>Formulário</h2>
-    <form action="index1.html" method="post">
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
+    <h1>Cadastro</h1>
+    <form action="cadastro.php" method="post" onsubmit="redirectToLogin()">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required><br>
 
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" required>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required><br>
 
-        <label for="confirma_senha">Confirme a Senha:</label>
-        <input type="password" name="confirma_senha" required>
-
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Cadastrar">
     </form>
 </body>
 </html>
+
