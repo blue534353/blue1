@@ -3,24 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <script>
-        function redirectToLogin() {
-            window.location.href = "index1.html";
-        }
-    </script>
+    <title>Formulário</title>
 </head>
 <body>
-    <h1>Cadastro</h1>
-    <form action="cadastro.php" method="post" onsubmit="redirectToLogin()">
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" name="username" required><br>
+    <h2>Formulário</h2>
 
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required><br>
+    <?php
+    // Configurações do banco de dados
+    $hostname = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "test";
 
-        <input type="submit" value="Cadastrar">
+    // Conecta ao banco de dados
+    $conn = new mysqli($hostname, $username, $password, $database);
+
+    // Verifica a conexão
+    if ($conn->connect_error) {
+        die("Conexão falhou: " . $conn->connect_error);
+    }
+
+    // Verifica se os dados do formulário foram enviados
+    if (isset($_POST['email'], $_POST['senha'], $_POST['confirma_senha'])) {
+        // Obtém dados do formulário
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+        $confirma_senha = $_POST['confirma_senha'];
+
+        // Verifica se as senhas coincidem
+        if ($senha !== $confirma_senha) {
+            die("As senhas não coincidem.");
+        }
+
+        // Hash da senha (nunca armazene senhas em texto puro no banco de dados)
+        $hashed_senha = password_hash($senha, PASSWORD_DEFAULT);
+
+        // Insere dados no banco de dados
+        $sql = "INSERT INTO legal (email, senha) VALUES ('$email', '$hashed_senha')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "Dados inseridos com sucesso!";
+        } else {
+            echo "Erro ao inserir dados: " . $conn->error;
+        }
+    } else {
+        echo "Dados do formulário não foram recebidos corretamente.";
+    }
+
+    // Fecha a conexão
+    $conn->close();
+    ?>
+    
+    <form action="processar_cadastro.php" method="post">
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" required>
+
+        <label for="confirma_senha">Confirme a Senha:</label>
+        <input type="password" name="confirma_senha" required>
+
+        <input type="submit" value="Enviar">
     </form>
 </body>
 </html>
+
 
